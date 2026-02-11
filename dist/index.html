@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hünkar Faruk'un Sultan Ayça İçin Macerası</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(ellipse at 50% 30%, #1a0a28 0%, #0d0d1a 60%, #050510 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Cinzel', Georgia, serif;
+            position: relative;
+        }
+
+        /* Animated background stars */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 10% 20%, #FFD70066, transparent),
+                radial-gradient(2px 2px at 30% 50%, #FF69B444, transparent),
+                radial-gradient(1px 1px at 50% 10%, #ffffff33, transparent),
+                radial-gradient(2px 2px at 70% 60%, #FFD70044, transparent),
+                radial-gradient(1px 1px at 85% 30%, #FF69B433, transparent),
+                radial-gradient(2px 2px at 20% 80%, #ffffff22, transparent),
+                radial-gradient(1px 1px at 60% 90%, #FFD70033, transparent),
+                radial-gradient(2px 2px at 90% 80%, #FF69B444, transparent),
+                radial-gradient(1px 1px at 40% 40%, #ffffff44, transparent),
+                radial-gradient(2px 2px at 15% 55%, #e9456033, transparent);
+            animation: twinkle 4s ease-in-out infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Floating hearts */
+        .bg-heart {
+            position: fixed;
+            font-size: 16px;
+            opacity: 0.08;
+            animation: floatHeart linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.08;
+            }
+
+            90% {
+                opacity: 0.08;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        #game-wrapper {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            z-index: 1;
+        }
+
+        #game-container {
+            border: 3px solid #e94560;
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(233, 69, 96, 0.4), 0 0 80px rgba(233, 69, 96, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        #chapter-panel {
+            width: 180px;
+            background: linear-gradient(180deg, rgba(20, 10, 40, 0.95), rgba(10, 5, 20, 0.95));
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            padding: 16px 12px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+        }
+
+        #chapter-panel h3 {
+            color: #FFD700;
+            font-size: 13px;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #FFD70044;
+            padding-bottom: 8px;
+        }
+
+        .chapter-item {
+            padding: 6px 8px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #555;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chapter-item.active {
+            background: linear-gradient(90deg, #FFD70022, transparent);
+            color: #FFD700;
+            border-left: 3px solid #FFD700;
+            font-weight: bold;
+            text-shadow: 0 0 8px #FFD70066;
+        }
+
+        .chapter-item.completed {
+            color: #4CAF50;
+        }
+
+        .chapter-item .ch-num {
+            font-size: 9px;
+            opacity: 0.7;
+            min-width: 16px;
+        }
+
+        #chapter-panel .game-title {
+            margin-top: auto;
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px solid #FFD70022;
+        }
+
+        #chapter-panel .game-title span {
+            font-size: 10px;
+            color: #e94560;
+            display: block;
+            line-height: 1.4;
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/index-CtjsxTpT.js"></script>
+</head>
+
+<body>
+    <!-- Background floating hearts -->
+    <div class="bg-heart" style="left:5%;animation-duration:12s;font-size:20px">♥</div>
+    <div class="bg-heart" style="left:15%;animation-duration:18s;animation-delay:2s">♥</div>
+    <div class="bg-heart" style="left:25%;animation-duration:14s;animation-delay:5s">♥</div>
+    <div class="bg-heart" style="left:40%;animation-duration:20s;animation-delay:1s;font-size:24px">♥</div>
+    <div class="bg-heart" style="left:55%;animation-duration:16s;animation-delay:7s">♥</div>
+    <div class="bg-heart" style="left:70%;animation-duration:15s;animation-delay:3s;font-size:22px">♥</div>
+    <div class="bg-heart" style="left:85%;animation-duration:19s;animation-delay:6s">♥</div>
+    <div class="bg-heart" style="left:95%;animation-duration:13s;animation-delay:4s">♥</div>
+
+    <div id="game-wrapper">
+        <div id="game-container"></div>
+        <div id="chapter-panel">
+            <h3>📜 Bölümler</h3>
+            <div class="chapter-item" data-ch="1"><span class="ch-num">I</span> Trajedi</div>
+            <div class="chapter-item" data-ch="2"><span class="ch-num">II</span> Uyanış</div>
+            <div class="chapter-item" data-ch="3"><span class="ch-num">III</span> Orman Yolu</div>
+            <div class="chapter-item" data-ch="4"><span class="ch-num">IV</span> Kale Önü</div>
+            <div class="chapter-item" data-ch="5"><span class="ch-num">V</span> Liman</div>
+            <div class="chapter-item" data-ch="6"><span class="ch-num">VI</span> Ada Tırmanışı</div>
+            <div class="chapter-item" data-ch="7"><span class="ch-num">VII</span> Karanlık Orman</div>
+            <div class="chapter-item" data-ch="8"><span class="ch-num">VIII</span> Ejderha Savaşı</div>
+            <div class="chapter-item" data-ch="9"><span class="ch-num">IX</span> Şehir Kapıları</div>
+            <div class="chapter-item" data-ch="10"><span class="ch-num">X</span> Kutlama</div>
+            <div class="chapter-item" data-ch="11"><span class="ch-num">XI</span> İhanet</div>
+            <div class="chapter-item" data-ch="12"><span class="ch-num">XII</span> Mutlu Son</div>
+            <div class="chapter-item" data-ch="13"><span class="ch-num">XIII</span> Kapanış</div>
+            <div class="game-title">
+                <span>⚔️ Hünkar Faruk'un<br>Sultan Ayça İçin Macerası ⚔️</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.setActiveChapter = function (num) {
+            document.querySelectorAll('.chapter-item').forEach(el => {
+                const ch = parseInt(el.dataset.ch);
+                el.classList.remove('active', 'completed');
+                if (ch === num) el.classList.add('active');
+                else if (ch < num) el.classList.add('completed');
+            });
+        };
+    </script>
+</body>
+
+</html>

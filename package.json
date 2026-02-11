@@ -1,0 +1,17 @@
+{
+  "name": "faruks-quest",
+  "version": "1.0.0",
+  "description": "Faruk's Quest for Ayça: Legend of the Dragon Island",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.87.0"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}
